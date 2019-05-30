@@ -32,7 +32,6 @@ module.exports = {
     'node',
   ],
 
-
   // Use this configuration option to add custom reporters to Jest
   // reporters: undefined,
 
