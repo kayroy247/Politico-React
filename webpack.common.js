@@ -30,7 +30,7 @@ const config = {
         use: ['url-loader'],
       },
       {
-        test: /\.(ttf|eot|svg)$/,
+        test: /\.(jpeg|ttf|eot|svg)$/,
         use: ['file-loader'],
       },
     ],
