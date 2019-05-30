@@ -1,18 +1,17 @@
 import * as actions from '../actions/actionTypes';
 
-const initialArticleState = {
+const initialState = {
   createdUser: {},
   error: [],
   loading: false
 };
 
-export default (state = initialArticleState, { type, payload }) => {
+export default (state = initialState, { type, payload }) => {
   switch (type) {
     case actions.AUTH_LOADING:
       return {
         ...state,
         loading: true,
-        error: [],
         createdUser: {}
       };
     case actions.AUTH_SUCCEEDED:
