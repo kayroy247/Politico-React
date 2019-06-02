@@ -12,6 +12,7 @@ export const client = axios.create({
   },
 });
 export const signup = user => client.post('/auth/signup', user);
+export const login = user => client.post('/auth/login', user);
 
 
 export const uploadProfileImage = (file) => {
