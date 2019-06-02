@@ -12,7 +12,7 @@ app.get('/bundle.js', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'bundle.js'));
 });
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.resolve('dist/index.html'));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'src/index.html'));
 });
 app.listen(port);
