@@ -8,10 +8,10 @@ export const client = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
-    Authorization: authHeader()
+     Authorization: authHeader()
   },
 });
-export const signup = user => client.post('/auth/signup', JSON.stringify(user));
+export const signup = user => client.post('/auth/signup', user);
 
 
 export const uploadProfileImage = (file) => {

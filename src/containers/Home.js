@@ -13,7 +13,7 @@ const Home = () => (
         <h1>Your Vote Is Your Power</h1>
         <p> Online Voting System Built on Integrity</p>
         <div className="mybuttons1">
-          <button onClick="location.href='signup.html'" className="button_1" type="button"><Link to="/Signup">signup</Link></button>
+          <button className="button_1" type="button"><Link to="/signup">signup</Link></button>
         </div>
       </div>
     </section>

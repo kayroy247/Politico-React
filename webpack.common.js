@@ -1,45 +1,71 @@
-
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-
-const config = {
-  entry: './src/index.js',
-  output: {
-    path: path.join(__dirname, '/dist'),
-    filename: 'bundle.js',
-    sourceMapFilename: 'bundle.map',
-  },
-  devtool: '#source-map',
+module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
+        include: [path.resolve(__dirname, 'src')],
+        loader: 'babel-loader',
+        query: {
+          presets: ['@babel/preset-env', '@babel/preset-react'],
         },
+        test: /\.js$/
       },
       {
-        test: /\.(css|scss)$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        test: /\.(scss|css)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
-        test: /\.gif$/,
-        use: ['url-loader'],
+        test: /\.(png|jpeg|jpg|gif|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {},
+          },
+        ],
       },
       {
-        test: /\.(jpeg|ttf|eot|svg)$/,
-        use: ['file-loader'],
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          }
+        ]
       },
-    ],
+      {
+        test: /plugin\.css$/,
+        loaders: [
+          'style-loader', 'css-loader',
+        ],
+      },
+    ]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-    }),
-  ],
+
+  output: {
+    chunkFilename: '[name].[chunkhash].js',
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    sourceMapFilename: 'bundle.map',
+    publicPath: '/'
+  },
+  devtool: '#source-map',
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          priority: -10,
+          test: /[\\/]node_modules[\\/]/
+        }
+      },
+
+      chunks: 'async',
+      minChunks: 1,
+      minSize: 30000,
+      name: true
+    },
+    minimizer: [new UglifyJsPlugin()]
+  },
   resolve: {
     alias: {
       Actions: path.resolve(__dirname, 'src/actions/'),
@@ -51,8 +77,6 @@ const config = {
       Store: path.resolve(__dirname, 'src/store/'),
       Test: path.resolve(__dirname, 'src/test/'),
       Assets: path.resolve(__dirname, 'src/assets/'),
-    },
-  },
+    }
+  }
 };
-
-module.exports = config;

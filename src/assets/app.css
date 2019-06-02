@@ -10,9 +10,7 @@
   font-family: arial;
   background: white;
   color:rgb(68, 68, 221);
-  border-radius: 20px;
-  
-  
+  border-radius: 20px; 
 }
 
 div > select{
@@ -162,7 +160,7 @@ select#makechange{
 
 #showcase, #register {
   flex: 1;
-  background-image: linear-gradient( rgba(26, 26, 129, 0.5),rgba(37, 37, 43, 0.5) ),
+  background-image: linear-gradient( rgb(251, 251, 255),rgba(243, 243, 247, 0.993) ),
   url('./images/votetablet.jpeg');
   text-align:center;
   background-size: cover;
@@ -244,6 +242,7 @@ border: 1px solid #24504f;
 width:90%;
 margin-top: 10px;
 margin-bottom: 30px;
+cursor: pointer;
 }
 
 footer {

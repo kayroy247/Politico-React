@@ -38,7 +38,7 @@ const Login = () => (
           </div>
 
           <div>
-            <button className="button_1" onClick="location.href='adminDashboard.html'" type="button">Login</button>
+            <button className="button_1" type="button">Login</button>
           </div>
           <div>
                         Dont have an account?
