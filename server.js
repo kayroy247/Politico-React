@@ -13,6 +13,6 @@ app.get('/bundle.js', (req, res) => {
 });
 
 app.get('/*', (req, res) => {
-  res.sendFile('index.html');
+  res.sendFile(path.resolve('dist/index.html'));
 });
 app.listen(port);
