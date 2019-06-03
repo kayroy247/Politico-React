@@ -36,9 +36,9 @@ const UserProfile = () => (
 
     <section id="register">
       <div className="card">
-        <img src="images/avatarpolitico.png" alt="apc" />
-        <h3>James John</h3>
-        <p>jamesjohn@gmail.com</p>
+        <img src="../assets/images/regist.jpg" alt="profile" />
+        <h3>Kayode Okunlade</h3>
+        <p>kayode123@gmail.com</p>
         <p>
           <button type="button">
             Edit information
