@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/kayroy247/Politico-React#readme",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "css-loader": "^2.1.1",
     "express": "^4.17.1",
     "file-loader": "^3.0.1",
